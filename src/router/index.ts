@@ -1,14 +1,20 @@
 import Vue from 'vue';
 import VueRouter, { RouteConfig } from 'vue-router';
-import Home from '../views/Home.vue';
+import Startpage from '@/components/Startpage.vue';
+import DetailPage from '@/components/DetailPage.vue';
 
 Vue.use(VueRouter);
 
 const routes: Array<RouteConfig> = [
   {
+    path: '/detail/:documentUuid/:env',
+    name: 'DetailPage',
+    component: DetailPage,
+  },
+  {
     path: '/',
-    name: 'Home',
-    component: Home,
+    name: 'Startpage',
+    component: Startpage,
   },
   {
     path: '/about',

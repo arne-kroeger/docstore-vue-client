@@ -1,32 +1,42 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+  <v-app>
+    <wiki-header></wiki-header>
+
+    <v-content>
+      <router-view :key="$route.fullPath"></router-view>
+    </v-content>
+  </v-app>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script lang="ts">
+import Vue from 'vue';
+import axios from 'axios';
+import WikiHeader from '@/components/WikiHeader.vue';
+import { DocumentApiFactory, Configuration } from './plugins/api-client';
 
-#nav {
-  padding: 30px;
+const instance = axios.create({
+  timeout: 10000,
+});
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+Vue.prototype.$http = instance;
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
-</style>
+const documentApi = DocumentApiFactory(
+  new Configuration(),
+  process.env.API_BASE_URL,
+  instance,
+);
+
+Vue.prototype.documentApi = documentApi;
+
+export default Vue.extend({
+  name: 'App',
+
+  components: {
+    WikiHeader,
+  },
+
+  data: () => ({
+    //
+  }),
+});
+</script>
