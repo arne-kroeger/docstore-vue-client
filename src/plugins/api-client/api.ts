@@ -26,87 +26,87 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
  */
 export interface BadRequest {
     /**
-     * 
+     *
      * @type {Array<ErrorItem>}
      * @memberof BadRequest
      */
     items?: Array<ErrorItem>;
 }
 /**
- * 
+ *
  * @export
  * @interface Document
  */
 export interface Document {
     /**
-     * 
+     *
      * @type {number}
      * @memberof Document
      */
     id?: number;
     /**
-     * 
+     *
      * @type {string}
      * @memberof Document
      */
     uuid: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof Document
      */
     title: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof Document
      */
     content: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof Document
      */
     latestChange?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof Document
      */
     latestUpdate: string;
     /**
-     * 
+     *
      * @type {Space}
      * @memberof Document
      */
     space: Space;
     /**
-     * 
+     *
      * @type {Environment}
      * @memberof Document
      */
     environment: Environment;
     /**
-     * 
+     *
      * @type {Array<Environment>}
      * @memberof Document
      */
     otherEnvironments: Array<Environment>;
     /**
-     * 
+     *
      * @type {Array<string>}
      * @memberof Document
      */
     tags: Array<string>;
 }
 /**
- * 
+ *
  * @export
  * @interface Environment
  */
 export interface Environment {
     /**
-     * 
+     *
      * @type {string}
      * @memberof Environment
      */
@@ -119,88 +119,88 @@ export interface Environment {
  */
 export interface ErrorItem {
     /**
-     * 
+     *
      * @type {string}
      * @memberof ErrorItem
      */
     field?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof ErrorItem
      */
     code?: string;
     /**
-     * 
+     *
      * @type {string}
      * @memberof ErrorItem
      */
     message?: string;
 }
 /**
- * 
+ *
  * @export
  * @interface Space
  */
 export interface Space {
     /**
-     * 
+     *
      * @type {string}
      * @memberof Space
      */
     name: string;
 }
 /**
- * 
+ *
  * @export
  * @interface TemplateData
  */
 export interface TemplateData {
     /**
-     * 
+     *
      * @type {string}
      * @memberof TemplateData
      */
     uuid: string;
     /**
-     * 
+     *
      * @type {Space}
      * @memberof TemplateData
      */
     space: Space;
     /**
-     * 
+     *
      * @type {Environment}
      * @memberof TemplateData
      */
     environment?: Environment;
     /**
-     * 
+     *
      * @type {Array<string>}
      * @memberof TemplateData
      */
     additionalTags?: Array<string>;
     /**
-     * 
+     *
      * @type {Array<TemplateVariable>}
      * @memberof TemplateData
      */
     variables: Array<TemplateVariable>;
 }
 /**
- * 
+ *
  * @export
  * @interface TemplateVariable
  */
 export interface TemplateVariable {
     /**
-     * 
+     *
      * @type {string}
      * @memberof TemplateVariable
      */
     name?: string;
     /**
-     * 
+     *
      * @type {object}
      * @memberof TemplateVariable
      */
@@ -214,9 +214,9 @@ export interface TemplateVariable {
 export const DocumentApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * 
+         *
          * @summary adds a new document
-         * @param {Document} document 
+         * @param {Document} document
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -236,7 +236,7 @@ export const DocumentApiAxiosParamCreator = function (configuration?: Configurat
             const localVarQueryParameter = {} as any;
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
@@ -253,10 +253,10 @@ export const DocumentApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
-         * 
+         *
          * @summary adds a new document by template
-         * @param {string} templateUuid 
-         * @param {TemplateData} templateData 
+         * @param {string} templateUuid
+         * @param {TemplateData} templateData
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -281,7 +281,7 @@ export const DocumentApiAxiosParamCreator = function (configuration?: Configurat
             const localVarQueryParameter = {} as any;
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
@@ -298,10 +298,10 @@ export const DocumentApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
-         * 
+         *
          * @summary get latest updated documents
-         * @param {string} uuid 
-         * @param {string} env 
+         * @param {string} uuid
+         * @param {string} env
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -327,7 +327,7 @@ export const DocumentApiAxiosParamCreator = function (configuration?: Configurat
             const localVarQueryParameter = {} as any;
 
 
-    
+
             localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
             delete localVarUrlObj.search;
@@ -340,7 +340,7 @@ export const DocumentApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
-         * 
+         *
          * @summary get latest updated documents
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -357,7 +357,7 @@ export const DocumentApiAxiosParamCreator = function (configuration?: Configurat
             const localVarQueryParameter = {} as any;
 
 
-    
+
             localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
             delete localVarUrlObj.search;
@@ -370,9 +370,9 @@ export const DocumentApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
-         * 
+         *
          * @summary search for documents
-         * @param {string} body 
+         * @param {string} body
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -392,7 +392,7 @@ export const DocumentApiAxiosParamCreator = function (configuration?: Configurat
             const localVarQueryParameter = {} as any;
 
 
-    
+
             localVarHeaderParameter['Content-Type'] = 'text/plain';
 
             localVarUrlObj.query = {...localVarUrlObj.query, ...localVarQueryParameter, ...options.query};
@@ -418,9 +418,9 @@ export const DocumentApiAxiosParamCreator = function (configuration?: Configurat
 export const DocumentApiFp = function(configuration?: Configuration) {
     return {
         /**
-         * 
+         *
          * @summary adds a new document
-         * @param {Document} document 
+         * @param {Document} document
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -432,10 +432,10 @@ export const DocumentApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * 
+         *
          * @summary adds a new document by template
-         * @param {string} templateUuid 
-         * @param {TemplateData} templateData 
+         * @param {string} templateUuid
+         * @param {TemplateData} templateData
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -447,10 +447,10 @@ export const DocumentApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * 
+         *
          * @summary get latest updated documents
-         * @param {string} uuid 
-         * @param {string} env 
+         * @param {string} uuid
+         * @param {string} env
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -462,7 +462,7 @@ export const DocumentApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * 
+         *
          * @summary get latest updated documents
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -475,9 +475,9 @@ export const DocumentApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * 
+         *
          * @summary search for documents
-         * @param {string} body 
+         * @param {string} body
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -498,9 +498,9 @@ export const DocumentApiFp = function(configuration?: Configuration) {
 export const DocumentApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     return {
         /**
-         * 
+         *
          * @summary adds a new document
-         * @param {Document} document 
+         * @param {Document} document
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -508,10 +508,10 @@ export const DocumentApiFactory = function (configuration?: Configuration, baseP
             return DocumentApiFp(configuration).addNewDocument(document, options)(axios, basePath);
         },
         /**
-         * 
+         *
          * @summary adds a new document by template
-         * @param {string} templateUuid 
-         * @param {TemplateData} templateData 
+         * @param {string} templateUuid
+         * @param {TemplateData} templateData
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -519,10 +519,10 @@ export const DocumentApiFactory = function (configuration?: Configuration, baseP
             return DocumentApiFp(configuration).addNewDocumentForTemplate(templateUuid, templateData, options)(axios, basePath);
         },
         /**
-         * 
+         *
          * @summary get latest updated documents
-         * @param {string} uuid 
-         * @param {string} env 
+         * @param {string} uuid
+         * @param {string} env
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -530,7 +530,7 @@ export const DocumentApiFactory = function (configuration?: Configuration, baseP
             return DocumentApiFp(configuration).getDocument(uuid, env, options)(axios, basePath);
         },
         /**
-         * 
+         *
          * @summary get latest updated documents
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -539,9 +539,9 @@ export const DocumentApiFactory = function (configuration?: Configuration, baseP
             return DocumentApiFp(configuration).getLatestDocuments(options)(axios, basePath);
         },
         /**
-         * 
+         *
          * @summary search for documents
-         * @param {string} body 
+         * @param {string} body
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -559,9 +559,9 @@ export const DocumentApiFactory = function (configuration?: Configuration, baseP
  */
 export class DocumentApi extends BaseAPI {
     /**
-     * 
+     *
      * @summary adds a new document
-     * @param {Document} document 
+     * @param {Document} document
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DocumentApi
@@ -571,10 +571,10 @@ export class DocumentApi extends BaseAPI {
     }
 
     /**
-     * 
+     *
      * @summary adds a new document by template
-     * @param {string} templateUuid 
-     * @param {TemplateData} templateData 
+     * @param {string} templateUuid
+     * @param {TemplateData} templateData
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DocumentApi
@@ -584,10 +584,10 @@ export class DocumentApi extends BaseAPI {
     }
 
     /**
-     * 
+     *
      * @summary get latest updated documents
-     * @param {string} uuid 
-     * @param {string} env 
+     * @param {string} uuid
+     * @param {string} env
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DocumentApi
@@ -597,7 +597,7 @@ export class DocumentApi extends BaseAPI {
     }
 
     /**
-     * 
+     *
      * @summary get latest updated documents
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -608,9 +608,9 @@ export class DocumentApi extends BaseAPI {
     }
 
     /**
-     * 
+     *
      * @summary search for documents
-     * @param {string} body 
+     * @param {string} body
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof DocumentApi
